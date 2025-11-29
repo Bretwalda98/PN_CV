@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Paul Nixon — Worldwide Specialist in Heavy Lifting and Transport</title>
-  <meta name="description" content="Paul Nixon — Worldwide Specialist in Heavy Lifting and Transport. Web CV with print-ready styling." />
+  <meta name="description" content="Web CV for Paul Nixon — Worldwide Specialist in Heavy Lifting and Transport." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -80,7 +80,13 @@
       white-space:nowrap;
     }
 
-    .actions{margin-top:1.25rem;display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+    .actions{
+      margin-top:1.25rem;
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
     .btn{
       display:inline-flex;align-items:center;gap:.5rem;
       padding:.7rem 1rem;border-radius:.85rem;border:1px solid var(--border);
@@ -95,9 +101,27 @@
       color:color-mix(in srgb, var(--bg1) 90%, black);
     }
 
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:flex-end}
-    .chips .chip{
-      background:linear-gradient(180deg, color-mix(in srgb, var(--panel) 80%, transparent), var(--card));
+    /* pill tags */
+    .tag-pills{
+      margin-top:1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:.5rem .85rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      color: var(--text);
+      font-weight:600;
+      font-size:.95rem;
+    }
+    html[data-theme="light"] .pill{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
     }
 
     .section{padding:2rem 0}
@@ -126,10 +150,38 @@
     .career-org{font-weight:600}
     .career-role{color:var(--muted)}
 
-    /* Project cards */
+    /* Project layout */
     .project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
     .project-card{padding:1.15rem}
     .project-meta{margin-top:.35rem}
+
+    /* mini outcomes (company / client / personal) */
+    .mini-3{
+      display:grid;
+      gap:.6rem;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      margin-top:.85rem;
+    }
+    .mini-3 > div{
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+      border-radius:.9rem;
+      padding:.7rem .8rem;
+    }
+    .mini-3 .k{
+      display:block;
+      font-weight:800;
+      letter-spacing:.02em;
+      font-size:.85rem;
+      color: var(--muted);
+      text-transform:uppercase;
+    }
+    .mini-3 .v{
+      display:block;
+      margin-top:.25rem;
+      line-height:1.4;
+      font-weight:600;
+    }
 
     /* Photos inside projects */
     .media-grid{
@@ -160,12 +212,12 @@
       .grid{grid-template-columns:1fr}
       .col-8,.col-4{grid-column:auto}
       header.hero{grid-template-columns:1fr;align-items:start}
-      .chips{justify-content:flex-start}
+      .mini-3{grid-template-columns:1fr}
     }
 
     /* =====================
        PRINT: PDF MATCH
-       (Tip: in print dialog, enable “Background graphics”)
+       (In browser print dialog, enable “Background graphics”)
     ====================== */
     @media print{
       html,body{
@@ -197,7 +249,7 @@
         <a class="chip" href="tel:07923439600">📞 07923 439600</a>
         <a class="chip" href="mailto:paulnixon@ntlworld.com">✉️ paulnixon@ntlworld.com</a>
 
-        <!-- LinkedIn: show readable URL text for PDF -->
+        <!-- LinkedIn: readable URL text for PDF -->
         <span class="chip">
           🔗
           <a class="print-url" href="https://www.linkedin.com/in/paul-nixon-9341a02a" target="_blank" rel="noopener">
@@ -206,23 +258,26 @@
         </span>
       </div>
 
+      <!-- Pill-style key themes -->
+      <div class="tag-pills" aria-label="Key themes">
+        <span class="pill">Heavy Lift</span>
+        <span class="pill">SPMT</span>
+        <span class="pill">Marine Ops</span>
+        <span class="pill">Oil &amp; Gas</span>
+        <span class="pill">Renewables</span>
+        <span class="pill">Nuclear</span>
+      </div>
+
       <div class="actions">
-        <a class="btn btn-accent" href="mailto:paulnixon@ntlworld.com?subject=Opportunities%20for%20Paul%20Nixon">Contact Me</a>
+        <a class="btn btn-accent" href="mailto:paulnixon@ntlworld.com?subject=Opportunities%20for%20Paul%20Nixon">
+          Contact Me
+        </a>
         <button class="btn no-print" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
           🌙 Dark
         </button>
-        <button class="btn btn-accent no-print" type="button" onclick="window.print()">Print / Save as PDF</button>
-      </div>
-    </div>
-
-    <div class="container" style="align-self:start; justify-self:end; text-align:right;">
-      <div class="chips">
-        <span class="chip">Heavy Lift</span>
-        <span class="chip">SPMT</span>
-        <span class="chip">Marine Ops</span>
-        <span class="chip">Oil &amp; Gas</span>
-        <span class="chip">Renewables</span>
-        <span class="chip">Nuclear</span>
+        <button class="btn btn-accent no-print" type="button" onclick="window.print()">
+          Print / Save as PDF
+        </button>
       </div>
     </div>
   </header>
@@ -231,146 +286,166 @@
     <section class="section">
       <div class="grid">
 
+        <!-- MAIN COLUMN -->
         <div class="col-8">
           <div class="card">
             <h2>Profile</h2>
             <p>
-              With <strong>40 years</strong> serving the Heavy Lift &amp; Transport industry across the UK and worldwide,
-              I deliver technical, commercial, and operational leadership from early engineering through compliant execution
-              across oil &amp; gas, renewables, nuclear, marine, and civil infrastructure projects.
+              With over <strong>40 years</strong> in heavy lift and transport across the UK and worldwide,
+              I bring practical engineering judgement, commercial awareness, and calm site leadership from
+              early planning through safe, compliant delivery across oil and gas, renewables, nuclear, marine,
+              and civil infrastructure. I work to UK BS and EN standards with the discipline of law, applying
+              the same level of rigour internationally even where local requirements are less stringent. I’m a
+              clear, straightforward communicator who works comfortably across cultures, and I’m known for being
+              dependable, trustworthy, and accountable—taking pride and ownership in project success and sharing
+              that commitment with the team I’m part of.
             </p>
           </div>
 
+          <!-- SELECTED PROJECTS WITH PHOTOS -->
           <div class="card" style="margin-top:1rem;">
-            <h2>Current &amp; Recent Projects (with photos)</h2>
+            <h2>Selected Projects (snapshots)</h2>
 
             <div class="project-grid">
-              <!-- Worley / S-Oil -->
+
+              <!-- Worley / S-Oil (Korea) -->
               <article class="card project-card">
-                <h3>Worley / S-Oil (Korea) — 2025</h3>
-                <p class="muted project-meta">Heavy Lifting &amp; Transport SME</p>
-                <ul>
-                  <li>Supported delivery of super-heavy tower lifts up to ~2,370 t and ~118 m height.</li>
-                  <li>Reviewed engineering for critical lifts involving LR12500, LR11350, LR1750, M81000 and a 3,000 t tower lifting system.</li>
-                </ul>
+                <h3>Worley / S-Oil (Korea) — Heavy Lift &amp; Transport SME</h3>
+                <p class="muted project-meta">Super-heavy tower lift engineering review and execution support.</p>
+
+                <div class="mini-3">
+                  <div><span class="k">For Worley</span><span class="v">Independent SME assurance on the critical lift plan.</span></div>
+                  <div><span class="k">For the client</span><span class="v">Clear, defendable methodology for high-consequence lifts.</span></div>
+                  <div><span class="k">Personally</span><span class="v">Hands-on leadership and standards-driven governance on site.</span></div>
+                </div>
 
                 <div class="media-grid">
                   <figure class="media">
                     <a href="cv25_p08_01.jpeg" target="_blank" rel="noopener">
-                      <img src="cv25_p08_01.jpeg" alt="Worley / S-Oil (Korea) project photo" loading="lazy" decoding="async">
+                      <img src="cv25_p08_01.jpeg" alt="Worley / S-Oil Korea — heavy lift activity" loading="lazy" decoding="async">
                     </a>
-                    <figcaption>Tower lifting / major lift activity (from CV)</figcaption>
+                    <figcaption>Super-heavy lift execution / tower-lift system on site.</figcaption>
                   </figure>
 
                   <figure class="media">
                     <a href="cv23_p08_01.png" target="_blank" rel="noopener">
-                      <img src="cv23_p08_01.png" alt="Worley / S-Oil (Korea) project photo" loading="lazy" decoding="async">
+                      <img src="cv23_p08_01.png" alt="Worley / S-Oil Korea — equipment and site context" loading="lazy" decoding="async">
                     </a>
-                    <figcaption>Site / equipment context for the lift (from CV)</figcaption>
+                    <figcaption>Site and equipment context supporting the tower lift scope.</figcaption>
                   </figure>
                 </div>
               </article>
 
               <!-- LNG Canada -->
               <article class="card project-card">
-                <h3>LNG Canada — 2022 – Present</h3>
-                <p class="muted project-meta">Contracts Manager, Mammoet</p>
-                <ul>
-                  <li>Contract and legislative compliance, risk identification and mitigation.</li>
-                  <li>Drove contract performance and opportunity management.</li>
-                </ul>
-                <p class="muted" style="margin-top:.9rem;">(No specific photo was tied to this role in the extracted CV images.)</p>
+                <h3>LNG Canada (JFJV Kitimat) — Contracts Manager, Mammoet</h3>
+                <p class="muted project-meta">Contract performance, compliance, risk and delivery alignment.</p>
+
+                <div class="mini-3">
+                  <div><span class="k">For Mammoet</span><span class="v">Commercial control and delivery focus across scope changes.</span></div>
+                  <div><span class="k">For the client</span><span class="v">Predictable, compliant execution and clean interfaces.</span></div>
+                  <div><span class="k">Personally</span><span class="v">Trusted point for contract discipline and practical solutions.</span></div>
+                </div>
               </article>
 
               <!-- Arctic LNG 2 -->
               <article class="card project-card">
-                <h3>Arctic LNG 2 — 2021 – 2022</h3>
-                <p class="muted project-meta">Project Manager – Transport Scope, Mammoet</p>
-                <ul>
-                  <li>Coordinated delivery of 16,000 t modules.</li>
-                  <li>Planned and controlled 1,200 axles of SPMT, ~100 field staff, and 10 engineers.</li>
-                </ul>
-                <p class="muted" style="margin-top:.9rem;">(No specific photo was tied to this role in the extracted CV images.)</p>
+                <h3>Arctic LNG 2 — Project Manager, Transport Scope (Mammoet)</h3>
+                <p class="muted project-meta">Large module transport planning and execution leadership.</p>
+
+                <div class="mini-3">
+                  <div><span class="k">For Mammoet</span><span class="v">Controlled delivery of high-volume transport scope.</span></div>
+                  <div><span class="k">For the client</span><span class="v">Safe, sequenced movement of heavy modules to plan.</span></div>
+                  <div><span class="k">Personally</span><span class="v">Coordinated teams, equipment and risk under harsh constraints.</span></div>
+                </div>
               </article>
 
               <!-- Northern Transshipment Base -->
               <article class="card project-card">
-                <h3>Northern Transshipment Base, Finland — 2018 – 2021</h3>
-                <p class="muted project-meta">Load-in / Load-out Coordinator, TCO</p>
-                <ul>
-                  <li>Ensured compliance across load-in/storage/load-out of PAU/PAR operations.</li>
-                  <li>Field leadership during ro-ro operations; interface with MWS; promoted IIF culture.</li>
-                </ul>
-                <p class="muted" style="margin-top:.9rem;">(No specific photo was tied to this role in the extracted CV images.)</p>
+                <h3>Northern Transshipment Base, Finland — Load-in / Load-out Coordinator (TCO)</h3>
+                <p class="muted project-meta">Ro-ro operations, storage control, compliance and site coordination.</p>
+
+                <div class="mini-3">
+                  <div><span class="k">For TCO</span><span class="v">Consistent standards, control and operational discipline.</span></div>
+                  <div><span class="k">For the supply chain</span><span class="v">Smoother interfaces and fewer surprises during load-outs.</span></div>
+                  <div><span class="k">Personally</span><span class="v">Strong field leadership and safety-first decision making.</span></div>
+                </div>
               </article>
 
-              <!-- Sarens -->
+              <!-- Sarens UK -->
               <article class="card project-card">
-                <h3>Sarens UK — 2016 – 2018</h3>
-                <p class="muted project-meta">Director of Projects &amp; Technical Solutions</p>
-                <ul>
-                  <li>Led tenders and heavy-lift solutions across oil &amp; gas and offshore wind (Beatrice, Aberdeen Bay).</li>
-                  <li>Managed major crane and SPMT operations on complex installs.</li>
-                </ul>
+                <h3>Sarens UK — Director of Projects / Technical Solutions</h3>
+                <p class="muted project-meta">Tenders, heavy-lift methods and delivery leadership (incl. offshore wind).</p>
+
+                <div class="mini-3">
+                  <div><span class="k">For Sarens</span><span class="v">Win-focused solutions with credible, buildable methods.</span></div>
+                  <div><span class="k">For the client</span><span class="v">Clear lift plans that reduce risk and improve certainty.</span></div>
+                  <div><span class="k">Personally</span><span class="v">Led teams through complex decisions and high-pressure windows.</span></div>
+                </div>
 
                 <div class="media-grid">
                   <figure class="media">
                     <a href="cv25_p04_01.jpeg" target="_blank" rel="noopener">
-                      <img src="cv25_p04_01.jpeg" alt="Sarens UK / Offshore Wind & Refining project photo" loading="lazy" decoding="async">
+                      <img src="cv25_p04_01.jpeg" alt="Sarens — heavy transport / lift operation" loading="lazy" decoding="async">
                     </a>
-                    <figcaption>Heavy lift / transport execution snapshot (from CV)</figcaption>
+                    <figcaption>Heavy transport / lift operation delivered under Sarens leadership.</figcaption>
                   </figure>
                 </div>
               </article>
 
               <!-- Mammoet UK / Major Projects -->
               <article class="card project-card">
-                <h3>Mammoet UK — Major Projects</h3>
-                <p class="muted project-meta">Senior contracts / project delivery across large heavy transport and installation scopes</p>
-                <ul>
-                  <li>Module moves, load-outs, installations, and complex transport planning.</li>
-                  <li>Integrated delivery with compliance, risk control, and site leadership.</li>
-                </ul>
+                <h3>Mammoet UK — Senior Contracts / Major Projects</h3>
+                <p class="muted project-meta">Major lifts, transport scopes, shutdowns and complex site logistics.</p>
+
+                <div class="mini-3">
+                  <div><span class="k">For Mammoet</span><span class="v">Commercial performance with safe, efficient execution.</span></div>
+                  <div><span class="k">For the client</span><span class="v">Reduced downtime and controlled risk on critical moves.</span></div>
+                  <div><span class="k">Personally</span><span class="v">Built trust by delivering under pressure—properly.</span></div>
+                </div>
 
                 <div class="media-grid">
-                  <figure class="media"><a href="cv25_p09_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p09_01.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Transport / lifting scene (from CV)</figcaption></figure>
-                  <figure class="media"><a href="cv25_p09_02.jpeg" target="_blank" rel="noopener"><img src="cv25_p09_02.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Equipment configuration / execution (from CV)</figcaption></figure>
-                  <figure class="media"><a href="cv25_p15_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p15_01.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Heavy transport / module handling (from CV)</figcaption></figure>
-                  <figure class="media"><a href="cv25_p17_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p17_01.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Onsite execution snapshot (from CV)</figcaption></figure>
-                  <figure class="media"><a href="cv25_p18_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p18_01.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Lift/transport operation context (from CV)</figcaption></figure>
+                  <figure class="media"><a href="cv25_p09_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p09_01.jpeg" alt="Mammoet — heavy transport scene" loading="lazy" decoding="async"></a><figcaption>Heavy transport / module handling in execution.</figcaption></figure>
+                  <figure class="media"><a href="cv25_p09_02.jpeg" target="_blank" rel="noopener"><img src="cv25_p09_02.jpeg" alt="Mammoet — lift or transport configuration" loading="lazy" decoding="async"></a><figcaption>Equipment configuration supporting a major move.</figcaption></figure>
+                  <figure class="media"><a href="cv25_p15_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p15_01.jpeg" alt="Mammoet — onsite operation" loading="lazy" decoding="async"></a><figcaption>Onsite execution snapshot during a major project.</figcaption></figure>
+                  <figure class="media"><a href="cv25_p17_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p17_01.jpeg" alt="Mammoet — crane / lift operation" loading="lazy" decoding="async"></a><figcaption>Lift / installation activity within a heavy-lift scope.</figcaption></figure>
+                  <figure class="media"><a href="cv25_p18_01.jpeg" target="_blank" rel="noopener"><img src="cv25_p18_01.jpeg" alt="Mammoet — heavy lift / transport context" loading="lazy" decoding="async"></a><figcaption>Project environment and operation context.</figcaption></figure>
 
-                  <figure class="media"><a href="cv23_p09_01.png"  target="_blank" rel="noopener"><img src="cv23_p09_01.png"  alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Historic project image (from CV)</figcaption></figure>
-                  <figure class="media"><a href="cv23_p15_01.jpeg" target="_blank" rel="noopener"><img src="cv23_p15_01.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Historic project image (from CV)</figcaption></figure>
-                  <figure class="media"><a href="cv23_p17_01.jpeg" target="_blank" rel="noopener"><img src="cv23_p17_01.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Historic project image (from CV)</figcaption></figure>
-                  <figure class="media"><a href="cv23_p18_01.jpeg" target="_blank" rel="noopener"><img src="cv23_p18_01.jpeg" alt="Mammoet major projects photo" loading="lazy" decoding="async"></a><figcaption>Historic project image (from CV)</figcaption></figure>
+                  <figure class="media"><a href="cv23_p09_01.png"  target="_blank" rel="noopener"><img src="cv23_p09_01.png"  alt="Mammoet — historic project image" loading="lazy" decoding="async"></a><figcaption>Historic major project photo (from 2023 CV).</figcaption></figure>
+                  <figure class="media"><a href="cv23_p15_01.jpeg" target="_blank" rel="noopener"><img src="cv23_p15_01.jpeg" alt="Mammoet — historic project image" loading="lazy" decoding="async"></a><figcaption>Historic major project photo (from 2023 CV).</figcaption></figure>
+                  <figure class="media"><a href="cv23_p17_01.jpeg" target="_blank" rel="noopener"><img src="cv23_p17_01.jpeg" alt="Mammoet — historic project image" loading="lazy" decoding="async"></a><figcaption>Historic major project photo (from 2023 CV).</figcaption></figure>
+                  <figure class="media"><a href="cv23_p18_01.jpeg" target="_blank" rel="noopener"><img src="cv23_p18_01.jpeg" alt="Mammoet — historic project image" loading="lazy" decoding="async"></a><figcaption>Historic major project photo (from 2023 CV).</figcaption></figure>
                 </div>
               </article>
 
-              <!-- Babcock -->
+              <!-- Babcock Marine Plymouth -->
               <article class="card project-card">
-                <h3>Babcock Marine Plymouth</h3>
-                <p class="muted project-meta">80 t refuelling crane removal scope (gantry/jacking/slide methodology)</p>
-                <ul>
-                  <li>Engineering-led approach to reduce work-at-height and improve execution safety.</li>
-                  <li>Owned commercial, technical, schedule, and site operations delivery.</li>
-                </ul>
+                <h3>Babcock Marine Plymouth — Project Delivery</h3>
+                <p class="muted project-meta">80 t refuelling crane removal using engineered gantry / jacking / slide method.</p>
+
+                <div class="mini-3">
+                  <div><span class="k">For the company</span><span class="v">Safer, smarter method that reduces exposure and cost.</span></div>
+                  <div><span class="k">For the client</span><span class="v">Controlled removal plan with minimal disruption.</span></div>
+                  <div><span class="k">Personally</span><span class="v">Owned the job end-to-end and delivered cleanly.</span></div>
+                </div>
 
                 <div class="media-grid">
                   <figure class="media">
                     <a href="cv25_p13_01.jpeg" target="_blank" rel="noopener">
-                      <img src="cv25_p13_01.jpeg" alt="Babcock Marine Plymouth project photo" loading="lazy" decoding="async">
+                      <img src="cv25_p13_01.jpeg" alt="Babcock — removal / handling arrangement" loading="lazy" decoding="async">
                     </a>
-                    <figcaption>Removal / handling arrangement snapshot (from CV)</figcaption>
+                    <figcaption>Cranes / rigging arrangement supporting removal operations.</figcaption>
                   </figure>
 
                   <figure class="media">
                     <a href="cv23_p13_01.jpeg" target="_blank" rel="noopener">
-                      <img src="cv23_p13_01.jpeg" alt="Babcock Marine Plymouth project photo" loading="lazy" decoding="async">
+                      <img src="cv23_p13_01.jpeg" alt="Babcock — gantry/jacking/slide methodology" loading="lazy" decoding="async">
                     </a>
-                    <figcaption>Gantry/jacking/slide methodology context (from CV)</figcaption>
+                    <figcaption>Engineered gantry / jacking / slide method to reduce work at height.</figcaption>
                   </figure>
                 </div>
               </article>
+
             </div>
           </div>
 
@@ -385,7 +460,7 @@
               <li>Risk &amp; opportunity management (cradle to grave)</li>
               <li>Value engineering and legislative control</li>
               <li>Critical management—implementing emergency protocol</li>
-              <li>Site operations: heavy transport, shipping/barge ops, heavy lift/installation</li>
+              <li>Site operations: heavy transport, shipping / barge ops, heavy lift / installation</li>
             </ul>
           </div>
 
@@ -396,7 +471,7 @@
               <li>Fortum Neste Oil, Porvoo (Finland) — Managed shipping, SPMT land transport on turntables, and MSG tower jacking to erect five reactors (2005).</li>
               <li>Fabricom GTI / Statoil, Hammerfest (Norway) — Managed winter North Sea shipments and logistics for ~100,000 freight tonnes (2004).</li>
               <li>Shell St Fergus (UK) — Contract Manager for Goldeneye project, overseeing barge, land transport, and heavy lifting operations (2002 – 2003).</li>
-              <li>Suncor Millennium / Syncrude UE1 (Canada) and Qatar upgrades — Contract/Project Controller roles establishing site engineering and heavy-lift logistics (2000 – 2002).</li>
+              <li>Suncor Millennium / Syncrude UE1 (Canada) and Qatar upgrades — Contract / Project Controller roles establishing site engineering and heavy-lift logistics (2000 – 2002).</li>
             </ul>
           </div>
 
@@ -418,6 +493,7 @@
           </div>
         </div>
 
+        <!-- SIDEBAR -->
         <aside class="col-4 sidebar">
           <div class="card">
             <h2>Key Skills</h2>
@@ -484,6 +560,7 @@
   </footer>
 
   <script>
+    // Light / dark theme toggle with local storage
     (function(){
       const root = document.documentElement;
       const btn = document.getElementById("themeToggle");
